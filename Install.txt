@@ -1,0 +1,12 @@
+sudo apt update
+sudo apt install overlayroot
+sudo nano /etc/overlayroot.conf
+overlayroot="tmpfs"
+
+
+sudo nano /etc/fstab
+tmpfs /tmp tmpfs defaults,noatime,nosuid,nodev,noexec,mode=1777,size=512M 0 0
+tmpfs /var/tmp tmpfs defaults,noatime,nosuid,nodev,noexec,mode=1777,size=256M 0 0
+
+sudo swapoff -a
+sudo reboot
